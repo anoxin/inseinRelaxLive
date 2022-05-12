@@ -1,5 +1,3 @@
-import one from './modules/one';
-import two from './modules/two';
+import showPhone from './modules/showPhone ';
 
-one();
-two();
+showPhone();
