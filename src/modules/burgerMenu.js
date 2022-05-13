@@ -85,7 +85,6 @@ const burgerMenu = () => {
             popupRepairTypes.style.visibility = '';
         }
     });
-
 };
 
 export default burgerMenu;

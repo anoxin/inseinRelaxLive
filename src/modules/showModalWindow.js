@@ -15,7 +15,6 @@ const showModalWindow = () => {
         }
 
     });
-
 };
 
 export default showModalWindow;
