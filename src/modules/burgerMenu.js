@@ -8,7 +8,7 @@ const burgerMenu = () => {
     let BottomBlock = '';
     let num = 0;
     let count = 0;
-    let temp = 300;
+    let temp = 50;
     let initialNum;
     let idInterval;
     let widthValue = 576;
