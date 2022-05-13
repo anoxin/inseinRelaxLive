@@ -1,7 +1,6 @@
 const burgerMenu = () => {
     const popupDialogMenu = document.querySelector('.popup-dialog-menu');
-    const menuLink = document.querySelectorAll('.popup-menu-nav__item > a.menu-link');
-    const closeМenu = document.querySelectorAll('.button-footer');
+    const popupRepairTypes = document.querySelector('.popup-repair-types');
     const body = document.body;
     let width = document.documentElement.clientWidth;
  
@@ -13,6 +12,7 @@ const burgerMenu = () => {
     let idInterval;
     let widthValue = 576;
 
+    // адаптив для меню
     const menuUp = () => {
         if (width < widthValue) {
             popupDialogMenu.style.transform = 'translate3d(0, -150%, 0)';
@@ -22,7 +22,8 @@ const burgerMenu = () => {
             popupDialogMenu.style.transition = '0s';
         }
     };
-
+    
+    // плавная прокрутка
     const animation = () => { 
         idInterval = requestAnimationFrame(animation);
         if ( num < (count + initialNum - temp) && (BottomBlock === true || BottomBlock === '')) {
@@ -39,7 +40,8 @@ const burgerMenu = () => {
         }
 
     };
-
+    
+    // изменение размера экрана
     window.addEventListener('resize', () => {
         width = document.documentElement.clientWidth;
         menuUp();
@@ -47,8 +49,9 @@ const burgerMenu = () => {
 
     menuUp();
 
+    // вызов и закрытие: "Бургер меню"
+
     body.addEventListener('click', (e) => {
-        console.log(e.target);
         if (e.target.closest('.menu__icon')) {
             popupDialogMenu.style.transition = '1s';
             popupDialogMenu.style.transform = 'translate3d(0, 0, 0)';  
@@ -57,7 +60,7 @@ const burgerMenu = () => {
             popupDialogMenu.style.transform = ''; 
         } else if (e.target.closest('.close-menu') && width < widthValue) {
             popupDialogMenu.style.transition = '1s';
-            popupDialogMenu.style.transform = 'translate3d(0, -150%, 0)';
+            popupDialogMenu.style.transform = '';
         }
         if (e.target.matches('.popup-menu-nav__item > a.menu-link') || e.target.closest('.button-footer')) {
             e.preventDefault();
@@ -69,6 +72,18 @@ const burgerMenu = () => {
             BottomBlock = '';
             animation();
         } 
+
+        // “Полный список услуг и цен”
+
+        if (e.target.closest('.link-list > a')) {
+            e.preventDefault();
+            popupDialogMenu.style.transform = '';
+            popupRepairTypes.style.visibility = 'visible';
+        }
+        if (e.target.closest('.popup-repair-types > .mobile-hide') || e.target.closest('.tablet-hide > .close')) {
+            e.preventDefault();
+            popupRepairTypes.style.visibility = '';
+        }
     });
 
 };
