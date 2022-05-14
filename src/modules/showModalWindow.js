@@ -1,10 +1,6 @@
 const showModalWindow = () => {
     const popupPrivacy = document.querySelector('.popup-privacy');
-    const closePrivacy = document.querySelector('.popup-privacy > .close');
-    const body = document.body;
-
-    console.log(popupPrivacy);
-    
+    const body = document.body;  
 
     body.addEventListener('click', (e) => {
         if (e.target.closest('.link-privacy')) {
