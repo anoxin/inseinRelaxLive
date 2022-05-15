@@ -38,6 +38,7 @@ const maskPhone = () => {
     }
     
     maskTel('input.feedback__input-input');
+    maskTel('input.feedback-block__form-input_phone');
 };
 
 export default maskPhone;
