@@ -1,5 +1,5 @@
 import { animate } from "./helpers";
-const slider = () => {
+const sliderTypesRepairs = () => {
     const repairTypes = document.getElementById('repair-types');
     const repairTypesSlider = document.querySelector('.repair-types-slider');
     const sliderArrowRight = document.querySelectorAll('.slider-arrow_right')[1];
@@ -171,4 +171,4 @@ const slider = () => {
 };
 
 
-export default slider;
+export default sliderTypesRepairs;
