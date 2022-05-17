@@ -7,7 +7,23 @@ import formulaDesktop from './modules/formulaDesktop';
 import SliderCarousel from './modules/SliderCarousel';
 import questionsAccordion from './modules/questionsAccordion';
 import { addFormulaStyle, removeFormulaStyle } from './modules/sliderFormula';
+import {documentSliderStyles} from './modules/sliderStyles';
+import sendForm from './modules/sendForm';
+import check from './modules/check';
 
+document.querySelectorAll('form').forEach((elem) => {
+  const formElemId = elem.id;
+  elem.setAttribute('novalidate', '');
+  sendForm({
+      formId: `${formElemId}`,
+      someElem: [
+          {
+              type: 'block',
+              id: 'total'
+          }
+      ]
+  });
+});
 
 const formulaSlider = new SliderCarousel({
     main: '.formula-slider-wrap',
@@ -38,6 +54,23 @@ const formulaSlider = new SliderCarousel({
   });
   sliderReviews.init();
 
+  const sliderDocument = new SliderCarousel({
+    wrap: '.transparency-slider',
+    prev: '#transparency-arrow_left',
+    next: '#transparency-arrow_right',
+    style: documentSliderStyles,
+    position: 0,
+    slidesToShow: 3,
+    resetDefault: true,
+    responsive: [
+      {
+        breakpoint: 1090,
+        slidesToShow: 1
+      },
+    ]
+  });
+  sliderDocument.init();
+
 
 showPhone();
 burgerMenu();
@@ -46,3 +79,4 @@ maskPhone();
 sliderTypesRepairs();
 formulaDesktop();
 questionsAccordion();
+check();
