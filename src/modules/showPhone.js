@@ -14,9 +14,7 @@ const showPhone = () => {
             headerContactsArrow.style.transform = 'rotate(0deg)';
         }
 
-    });
-
-    
+    }); 
 };
 
 export default showPhone;

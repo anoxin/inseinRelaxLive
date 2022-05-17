@@ -9,16 +9,51 @@ const sliderTypesRepairs = () => {
     const buttons = document.querySelectorAll('.nav-list-repair > button');
     const navArrowRight = repairTypes.querySelector('.nav-arrow_right');
     const navArrowLeft = repairTypes.querySelector('.nav-arrow_left');
-
     let typesRepair = document.querySelector('.types-repair1');
     let repairTypesSliderSlide = typesRepair.querySelectorAll('.repair-types-slider__slide');
-    
+    let width = document.documentElement.clientWidth;  
 
     let lotClicks = false;
     let percentageRatio = 20;
     let change;
     let left;
     let num;
+
+    const sliderMove = (right) => {
+        let stop = false;
+        buttons.forEach((elem, id) => {
+            if (width < 1025) {
+                if (elem.classList.contains('active')) {
+                    elem.style.position = "";
+                    elem.style.left = "50%";
+                    elem.style.transform = "translateX(-50%)";
+                    elem.style.transition = "1s";
+                    repairTypes.querySelector('.nav-list-repair').style.cssText = `min-width: 100%`;
+                    stop = true;
+        
+                } else {
+                    if (!stop) {
+                        elem.style.position = "absolute";
+                        elem.style.left = "-100%";
+                        elem.style.transform = "";
+                    } 
+                    if (stop) {
+                        elem.style.position = "absolute";
+                        elem.style.left = "100%";
+                        elem.style.transform = "";
+                    } 
+                }
+
+            } else {
+                elem.style.position = "";
+                elem.style.left = "";
+                elem.style.transform = "";
+            }
+            
+
+        });
+
+    };
 
     const animation = (symbolEl) => {
         animate({
@@ -56,6 +91,7 @@ const sliderTypesRepairs = () => {
         if (e.target.closest('.nav-arrow_right') || e.target.closest('.nav-arrow_left')) {
             let newActive;
             let lastActive;
+            let right;
             buttons.forEach((elem, id) => {
                 if (repairTypes.querySelector('.active') == elem) {
                     lastActive = id;
@@ -81,7 +117,7 @@ const sliderTypesRepairs = () => {
             });
             buttons[lastActive].classList.remove('active');
             buttons[newActive].classList.add('active');
-            repairTypes.querySelector('.nav-list-repair').style.transform = `translateX(${(newActive) * -20}%)`;
+            sliderMove();
             change = true;
        
         }
@@ -164,8 +200,14 @@ const sliderTypesRepairs = () => {
             sliderArrowLeft.style.display = '';
         }
     });  
+
+    window.addEventListener('resize', () => {
+        width = document.documentElement.clientWidth;
+        sliderMove();
+    });
     
     defaultValue();
+    sliderMove();
     navArrowLeft.style.display = 'none';
 
 };

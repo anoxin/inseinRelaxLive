@@ -8957,3 +8957,8 @@ strong {
 .slider-dots {
     display: none;
 }
+
+.swiper {
+    width: 600px;
+    height: 300px;
+  }
