@@ -6,7 +6,7 @@ import sliderTypesRepairs from './modules/sliderTypesRepairs';
 import formulaDesktop from './modules/formulaDesktop';
 import SliderCarousel from './modules/SliderCarousel';
 import questionsAccordion from './modules/questionsAccordion';
-import { addHighlightStyle, removeHighlightStyle } from './modules/sliderFormula';
+import { addFormulaStyle, removeFormulaStyle } from './modules/sliderFormula';
 
 
 const formulaSlider = new SliderCarousel({
@@ -15,7 +15,7 @@ const formulaSlider = new SliderCarousel({
     prev: '#formula-arrow_left',
     next: '#formula-arrow_right',
     loop: true,
-    showCenter: [addHighlightStyle, removeHighlightStyle],
+    showCenter: [addFormulaStyle, removeFormulaStyle],
     autoplay: true,
     time: 5000,
     position: -1,
@@ -28,6 +28,15 @@ const formulaSlider = new SliderCarousel({
     ]
   });
   formulaSlider.init();
+
+  const sliderReviews = new SliderCarousel({
+    wrap: '.reviews-slider',
+    prev: '#reviews-arrow_left',
+    next: '#reviews-arrow_right',
+    position: 1,
+    slidesToShow: 1,
+  });
+  sliderReviews.init();
 
 
 showPhone();
