@@ -5,6 +5,7 @@ import maskPhone from './modules/maskPhone';
 import sliderTypesRepairs from './modules/sliderTypesRepairs';
 import formulaDesktop from './modules/formulaDesktop';
 import SliderCarousel from './modules/SliderCarousel';
+import questionsAccordion from './modules/questionsAccordion';
 import { addHighlightStyle, removeHighlightStyle } from './modules/sliderFormula';
 
 
@@ -35,3 +36,4 @@ showModalWindow();
 maskPhone();
 sliderTypesRepairs();
 formulaDesktop();
+questionsAccordion();
