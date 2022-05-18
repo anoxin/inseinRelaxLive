@@ -10,6 +10,7 @@ import { addFormulaStyle, removeFormulaStyle } from './modules/sliderFormula';
 import {documentSliderStyles} from './modules/sliderStyles';
 import sendForm from './modules/sendForm';
 import check from './modules/check';
+import sliderTransparencyModal from './modules/sliderTransparencyModal';
 
 document.querySelectorAll('form').forEach((elem) => {
   const formElemId = elem.id;
@@ -80,3 +81,4 @@ sliderTypesRepairs();
 formulaDesktop();
 questionsAccordion();
 check();
+sliderTransparencyModal();

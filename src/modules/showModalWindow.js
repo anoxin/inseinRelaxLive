@@ -2,6 +2,7 @@ const showModalWindow = () => {
     const popupPrivacy = document.querySelector('.popup-privacy');
     const body = document.body; 
     const consultations = document.querySelector('.popup-consultation');
+    const popupThank = document.querySelector('.popup-thank');
 
     body.addEventListener('click', (e) => {
         // Политика конфиденциальности
@@ -18,8 +19,10 @@ const showModalWindow = () => {
         if (e.target.closest('.close-consultation')) {
             consultations.style.visibility = '';
         }
-
-
+        // спасибо за обращение
+        if (e.target.closest('.close-thank')) {
+            popupThank.style.visibility = '';
+        }
     });
 };
 

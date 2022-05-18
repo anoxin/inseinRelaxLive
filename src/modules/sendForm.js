@@ -3,11 +3,9 @@ import { validate } from "./validate";
 const sendForm = ({ formId, someElem = [] }) => {
     const form = document.getElementById(formId);
     const statusBlock = document.createElement('div');
-    const loadText = 'Загрузка...';
+    statusBlock.style.color = 'red';
     const errorText = 'Ошибка...';
-    const successText = 'Спасибо! Наш менеджер с вами свяжется!';
-
-
+    
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
@@ -31,14 +29,11 @@ const sendForm = ({ formId, someElem = [] }) => {
         });
 
         if (validate(formElements)) {
-            statusBlock.textContent = loadText;
             form.append(statusBlock);
-            if (document.querySelectorAll('#form3 > div').length == 4) {
-                document.querySelectorAll('#form3 > div')[3].style.color = 'white';
-            }
             sendData(formBody)
             .then(data => {
-                statusBlock.textContent = successText;
+                // всплывающее окно
+                document.querySelector('.popup-thank').style.visibility = 'visible';
                     formElements.forEach(input => {
                         input.value = '';
                         input.checked = false;

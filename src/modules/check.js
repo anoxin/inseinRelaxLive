@@ -1,6 +1,5 @@
 const check = () => {
     const inputsText = document.querySelectorAll('input[name="name"]');
-    console.log(inputsText);
  
     inputsText.forEach(function(item) {
         item.addEventListener('input', (e) => {
