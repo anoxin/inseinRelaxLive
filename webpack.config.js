@@ -2,9 +2,12 @@ const path = require('path');
 
 module.exports = {
     context: path.resolve(__dirname, 'src'), // папка по умолчанию
-    entry: './index.js', // главная точка входа
+    entry: {
+        main: './index.js',
+        admin: './backend/index.js'
+    },
     output: {
-        filename: 'js/main.js', // название файла
+        filename: 'js/[name].js', // название файла
         path: path.resolve(__dirname, 'dist') // корневой каталог и куда будет помещен
     },
     devServer: {
