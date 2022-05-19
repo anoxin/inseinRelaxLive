@@ -23,6 +23,14 @@ const showModalWindow = () => {
         if (e.target.closest('.close-thank')) {
             popupThank.style.visibility = '';
         }
+        // портфолио
+        if (e.target.closest('.portfolio-slider__slide-frame')) {
+            document.querySelector('.popup-portfolio').style.visibility = 'visible';
+        }
+        if (e.target.closest('.popup-portfolio > .close') || e.target.closest('.popup-dialog > .close')) {
+            document.querySelector('.popup-portfolio').style.visibility = '';
+        }
+    
     });
 };
 

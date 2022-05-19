@@ -7,10 +7,11 @@ import formulaDesktop from './modules/formulaDesktop';
 import SliderCarousel from './modules/SliderCarousel';
 import questionsAccordion from './modules/questionsAccordion';
 import { addFormulaStyle, removeFormulaStyle } from './modules/sliderFormula';
-import {documentSliderStyles} from './modules/sliderStyles';
+import {documentSliderStyles, portfolioSliderStyles, mobilePortfolioSliderStyles} from './modules/sliderStyles';
 import sendForm from './modules/sendForm';
 import check from './modules/check';
 import sliderTransparencyModal from './modules/sliderTransparencyModal';
+import { setPortfolioPosition } from './modules/setSlidersPosition';
 
 document.querySelectorAll('form').forEach((elem) => {
   const formElemId = elem.id;
@@ -71,6 +72,51 @@ const formulaSlider = new SliderCarousel({
     ]
   });
   sliderDocument.init();
+
+  const popupPortfolioSlider = new SliderCarousel({
+    wrap: '.popup-portfolio-slider',
+    prev: '#popup_portfolio_left',
+    next: '#popup_portfolio_right',
+    slideCounter: '#popup-portfolio-counter',
+    currentCount: '.slider-counter-content__current',
+    totalCount: '.slider-counter-content__total',
+    position: 0,
+    slidesToShow: 1,
+  });
+  popupPortfolioSlider.init();
+  setPortfolioPosition(popupPortfolioSlider);
+  const portfolioSlider = new SliderCarousel({
+    wrap: '.portfolio-slider',
+    prev: '#portfolio-arrow_left',
+    next: '#portfolio-arrow_right',
+    style: portfolioSliderStyles,
+    position: 0,
+    px: 352,
+    slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 1140,
+        slidesToShow: 2
+      },
+      {
+        breakpoint: 900,
+        slidesToShow: 1
+      },
+    ]
+  });
+  portfolioSlider.init();
+  const mobilePortfolioSlider = new SliderCarousel({
+    wrap: '.portfolio-slider-mobile',
+    prev: '#portfolio-arrow-mobile_left',
+    next: '#portfolio-arrow-mobile_right',
+    slideCounter: '#portfolio-counter',
+    style: mobilePortfolioSliderStyles,
+    currentCount: '.slider-counter-content__current',
+    totalCount: '.slider-counter-content__total',
+    position: 0,
+    slidesToShow: 1,
+  });
+  mobilePortfolioSlider.init();
 
 
 showPhone();

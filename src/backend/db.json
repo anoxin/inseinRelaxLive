@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Mark",
+      "email": "otto@gmail.com",
+      "children": "true",
+      "permissions": true
+    },
+    {
+      "id": 1,
+      "name": "Jacob",
+      "email": "thornton@gmail.com",
+      "children": false,
+      "permissions": false
+    },
+    {
+      "name": "антон",
+      "email": "gggg@hhhh.ru",
+      "children": false,
+      "permissions": "false",
+      "id": 2
+    },
+    {
+      "name": "антон",
+      "email": "gggg@hhh.ru",
+      "children": false,
+      "permissions": "false",
+      "id": 3
+    },
+    {
+      "name": "fdf",
+      "email": "fdddf@ghhhg.hhh",
+      "children": false,
+      "permissions": "false",
+      "id": 4
+    }
+  ]
+}
