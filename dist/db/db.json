@@ -640,8 +640,8 @@
     ],
     "password": [
         {
-            "admin": "admin",
-            "password": "12345"
+            "admin": "user",
+            "password": "12345678"
 
         }
     ]
