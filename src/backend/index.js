@@ -1,10 +1,9 @@
 import { render } from "./modules/render";
 import { renderLogin } from "./modules/renderLogin";
-// import { addUsers } from "./modules/addUsers";
+import { addUsers } from "./modules/addUsers";
 import { UserService } from "./modules/userService";
-// import { removeUsers } from "./modules/removeUsers";
-// import { changePermissions } from "./modules/changePermissions";
-// import { editUsers } from "./modules/editUsers";
+import { removeUsers } from "./modules/removeUsers";
+import { editUsers } from "./modules/editUsers";
 import { LoginService } from "./modules/loginService";
 import { loginTable } from "./modules/loginTable";
 
@@ -18,10 +17,13 @@ loginService.getUsers().then(data => {
     renderLogin(data);
 });
 
-// addUsers();
-// removeUsers();
-// changePermissions();
-// editUsers();
 loginTable();
+if (document.location.pathname == '/admin/table.html') {
+    addUsers();
+    removeUsers();
+    editUsers();
+
+}
+
 
 

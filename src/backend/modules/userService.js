@@ -32,12 +32,26 @@ export class UserService {
 
     }
     editUser(id, user) {
-        return fetch(`http://localhost:4545/users/${id}`, {
-            method: 'PUT',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user)
-        }).then(res => res.json());
+        const form = document.querySelector('.modal > form');
+        if (!form.classList.contains('add-form')) {
+            return fetch(`http://localhost:4545/users/${id}`, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user)
+            }).then(res => res.json());
+
+        } else {
+            return fetch('http://localhost:4545/users', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user)
+    
+            }).then(res => res.json());
+        }
+   
     }
 }
