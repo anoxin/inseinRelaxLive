@@ -29,8 +29,20 @@ export const render = (users) => {
             `);
     
         });
+
+
+        buttons.querySelector('button').style.cssText = "border: 3px solid rgb(244, 137, 34) !important";
+
+        tboby.querySelectorAll('tr.mobile-row').forEach(elem => {
+            if (elem.innerHTML.search(`${buttons.querySelector('button').textContent}`) == -1) {
+                elem.style.display = "none";
+            } else {
+                elem.style.display = "";
+            }
+        });
     
         buttons.addEventListener('click', (e) => {
+            document.querySelector('#switch-inner').textContent = e.target.textContent;
             buttons.querySelectorAll('button').forEach((item) => {
                 item.style.cssText = "";
             });
@@ -43,9 +55,6 @@ export const render = (users) => {
                 }
             });
     
-        });
-
-    
-
+        }); 
 
 };
