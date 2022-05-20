@@ -12,6 +12,15 @@ import sendForm from './modules/sendForm';
 import check from './modules/check';
 import sliderTransparencyModal from './modules/sliderTransparencyModal';
 import { setPortfolioPosition } from './modules/setSlidersPosition';
+// import dataUploading from './modules/dataUploading';
+import { UserService } from "./modules/userService";
+import { render } from "./modules/render";
+
+window.userService = new UserService;
+
+userService.getUsers().then(data => {
+    render(data);
+});
 
 document.querySelectorAll('form').forEach((elem) => {
   const formElemId = elem.id;
@@ -128,3 +137,4 @@ formulaDesktop();
 questionsAccordion();
 check();
 sliderTransparencyModal();
+// dataUploading();
