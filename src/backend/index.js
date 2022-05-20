@@ -18,7 +18,8 @@ loginService.getUsers().then(data => {
 });
 
 loginTable();
-if (document.location.pathname == '/admin/table.html') {
+if (document.location.pathname == '/admin/table.html' ||
+document.location.pathname == '/dist/admin/table.html') {
     addUsers();
     removeUsers();
     editUsers();
