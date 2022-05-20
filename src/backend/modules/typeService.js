@@ -1,25 +1,25 @@
-export class UserService {
-    getUsers() {
-        return fetch('http://localhost:4545/users').then(res => res.json());
+export class TypeService {
+    getServices() {
+        return fetch('http://localhost:4545/services').then(res => res.json());
     }
 
-    addUser(user) {
-        return fetch('http://localhost:4545/users', {
+    addService(service) {
+        return fetch('http://localhost:4545/services', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(service)
 
         }).then(res => res.json());
     }
-    removeUser(id) {
-        return fetch(`http://localhost:4545/users/${id}`, {
+    removeService(id) {
+        return fetch(`http://localhost:4545/services/${id}`, {
             method: 'DELETE'
         }).then(res => res.json());
     }
-    changeUser(id, data) {
-        return fetch(`http://localhost:4545/users/${id}`, {
+    changeService(id, data) {
+        return fetch(`http://localhost:4545/services/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
@@ -27,28 +27,28 @@ export class UserService {
             body: JSON.stringify(data)
         }).then(res => res.json());
     }
-    getUser(id) {
-        return fetch(`http://localhost:4545/users/${id}`).then(res => res.json());
+    getService(id) {
+        return fetch(`http://localhost:4545/services/${id}`).then(res => res.json());
 
     }
-    editUser(id, user) {
+    editService(id, service) {
         const form = document.querySelector('.modal > form');
         if (!form.classList.contains('add-form')) {
-            return fetch(`http://localhost:4545/users/${id}`, {
+            return fetch(`http://localhost:4545/services/${id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(service)
             }).then(res => res.json());
 
         } else {
-            return fetch('http://localhost:4545/users', {
+            return fetch('http://localhost:4545/services', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(service)
     
             }).then(res => res.json());
         }

@@ -1,8 +1,7 @@
 import { render } from "./render";
 
-export const editUsers = () => {
+export const editServices = () => {
     const tboby = document.getElementById('table');
-
     const form = document.querySelector('.modal > form');
     const typeInput = form.querySelector('#type');
     const nameInput = form.querySelector('#name');
@@ -20,11 +19,11 @@ export const editUsers = () => {
                 const tr = event.target.closest('tr');
                 const id = tr.dataset.key;
                 
-                userService.getUser(id).then(user => {
-                    typeInput.value = user.type;
-                    nameInput.value = user.name;
-                    unitsInput.value = user.units;
-                    costInput.value = user.cost;
+                typeService.getService(id).then(service => {
+                    typeInput.value = service.type;
+                    nameInput.value = service.name;
+                    unitsInput.value = service.units;
+                    costInput.value = service.cost;
                     form.dataset.method = id;
     
                 });
@@ -36,7 +35,7 @@ export const editUsers = () => {
     
             if(form.dataset.method) {
                 const id = form.dataset.method;
-                const user = {
+                const service = {
                     type: typeInput.value,
                     name: nameInput.value,
                     units: unitsInput.value,
@@ -44,9 +43,9 @@ export const editUsers = () => {
          
                 };
         
-                userService.editUser(id, user).then(() => {
-                    userService.getUsers().then(users => {
-                        render(users);
+                typeService.editService(id, service).then(() => {
+                    typeService.getServices().then(services => {
+                        render(services);
                         form.reset();
                         form.removeAttribute('data-method');
                     });
@@ -61,7 +60,7 @@ export const editUsers = () => {
             e.preventDefault();
     
             if(!form.dataset.method) {
-                const user = {
+                const service = {
                     type: typeInput.value,
                     name: nameInput.value,
                     units: unitsInput.value,
@@ -69,9 +68,9 @@ export const editUsers = () => {
                     id: Math.floor(Math.random() * (9999999999)) + 1000000000
                 };
         
-                userService.addUser(user).then(() => {
-                    userService.getUsers().then(users => {
-                        render(users);
+                typeService.addService(service).then(() => {
+                    typeService.getServices().then(services => {
+                        render(services);
                         form.reset();
                     });
                 });

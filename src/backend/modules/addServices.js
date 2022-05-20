@@ -1,6 +1,6 @@
 import { render } from "./render";
 
-export const addUsers = () => {
+export const addServices = () => {
     const form = document.querySelector('.modal > form');
     const typeInput = form.querySelector('#type');
     const nameInput = form.querySelector('#name');
@@ -29,7 +29,7 @@ export const addUsers = () => {
         e.preventDefault();
 
         if(!form.dataset.method) {
-            const user = {
+            const service = {
                 type: typeInput.value,
                 name: nameInput.value,
                 units: unitsInput.value,
@@ -37,9 +37,9 @@ export const addUsers = () => {
                 id: Math.floor(Math.random() * (9999999999)) + 1000000000
             };
     
-            userService.addUser(user).then(() => {
-                userService.getUsers().then(users => {
-                    render(users);
+            typeService.addService(service).then(() => {
+                typeService.getServices().then(services => {
+                    render(services);
                     form.reset();
                 });
             });

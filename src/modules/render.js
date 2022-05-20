@@ -1,4 +1,4 @@
-export const render = (users) => {
+export const render = (types) => {
     const tboby = document.querySelector('.popup-repair-types-content-table__list > tbody');
     const buttons = document.querySelector('.nav-list-popup-repair');
     let arrType = [];
@@ -6,18 +6,18 @@ export const render = (users) => {
         tboby.innerHTML = '';
         buttons.innerHTML = '';
 
-        users.forEach(user => {
+        types.forEach(type => {
             tboby.insertAdjacentHTML('beforeend', `
                 <tr class="mobile-row">
-                    <td class="repair-types-name" value="${user.type}">${user.name}</td>
+                    <td class="repair-types-name" value="${type.type}">${type.name}</td>
                     <td class="mobile-col-title tablet-hide desktop-hide">Ед.измерения</td>
                     <td class="mobile-col-title tablet-hide desktop-hide">Цена за ед.</td>
-                    <td class="repair-types-value">${user.units}</sup></td>
-                    <td class="repair-types-value">${user.cost} руб.</td>
+                    <td class="repair-types-value">${type.units}</sup></td>
+                    <td class="repair-types-value">${type.cost} руб.</td>
                 </tr>
                 
             `);
-            arrType.push(user.type);
+            arrType.push(type.type);
     
         });
     

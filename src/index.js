@@ -12,13 +12,12 @@ import sendForm from './modules/sendForm';
 import check from './modules/check';
 import sliderTransparencyModal from './modules/sliderTransparencyModal';
 import { setPortfolioPosition } from './modules/setSlidersPosition';
-// import dataUploading from './modules/dataUploading';
-import { UserService } from "./modules/userService";
+import { TypeService } from "./modules/typeService";
 import { render } from "./modules/render";
 
-window.userService = new UserService;
+window.typeService = new TypeService;
 
-userService.getUsers().then(data => {
+typeService.getTypes().then(data => {
     render(data);
 });
 
@@ -137,4 +136,3 @@ formulaDesktop();
 questionsAccordion();
 check();
 sliderTransparencyModal();
-// dataUploading();

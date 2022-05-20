@@ -1,6 +1,6 @@
 import { render } from "./render";
 
-export const removeUsers = () => {
+export const removeServices = () => {
     const tboby = document.getElementById('table');
 
     tboby.addEventListener('click', (event) => {
@@ -8,9 +8,9 @@ export const removeUsers = () => {
             const tr = event.target.closest('tr');
             const id = tr.dataset.key;
             
-            userService.removeUser(id).then(res => {
-                userService.getUsers().then(users => {
-                    render(users);
+            typeService.removeService(id).then(res => {
+                typeService.getServices().then(services => {
+                    render(services);
                 });
             })
         }

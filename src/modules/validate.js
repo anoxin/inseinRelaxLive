@@ -1,6 +1,4 @@
 const validate  = (formElements) => {
-    const checkboxLabel = document.querySelectorAll('.checkbox__label');
-    const cssStyle = ``;
     let success = true;
     
     formElements.forEach((elem) => {
@@ -34,7 +32,6 @@ const validate  = (formElements) => {
             }
             if (elem.className == "checkbox__input" && !elem.checked) {
                 success = false; 
-                console.log(elem);
                 elem.closest('.checkbox').querySelector('label').style="border: 2px solid red;";
             } else if (elem.className == "checkbox__input") {
                 elem.closest('.checkbox').querySelector('label').style="";

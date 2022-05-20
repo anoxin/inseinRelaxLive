@@ -1,4 +1,4 @@
-export const render = (users) => {
+export const render = (services) => {
     const tboby = document.getElementById('table');
     const select = document.getElementById('typeItem');
     let arrType = [];
@@ -7,19 +7,19 @@ export const render = (users) => {
         tboby.innerHTML = '';
         select.innerHTML = '';
 
-        users.forEach(user => {
+        services.forEach(service => {
             tboby.insertAdjacentHTML('beforeend', `
-                <tr data-key="${user.id}" class="table__row">
-                    <td class="table__id table__cell">${user.id}</td>
-                    <td class="table-type table__cell">${user.type}</td>
+                <tr data-key="${service.id}" class="table__row">
+                    <td class="table__id table__cell">${service.id}</td>
+                    <td class="table-type table__cell">${service.type}</td>
                     <td class="table-name table__cell">
-                        ${user.name}
+                        ${service.name}
                     </td>
                     <td class="table-units table__cell">
-                        ${user.units}
+                        ${service.units}
                     </td>
                     <td class="table-cost table__cell">
-                        ${user.cost} руб
+                        ${service.cost} руб
                     </td>
                     <td>
                         <div class="table__actions table__cell">
@@ -32,7 +32,7 @@ export const render = (users) => {
                 </tr>
                 
             `);
-            arrType.push(user.type);
+            arrType.push(service.type);
     
         });
     
