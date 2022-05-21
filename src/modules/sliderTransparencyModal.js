@@ -31,11 +31,7 @@ const sliderTransparencyModal = () => {
                         elem.style.transform = 'translateX(100%)';
                     } 
                 }
-                if (close) {
-                    elem.style.position = '';
-                    elem.style.transition = '';
         
-                }         
         });
     };
 
@@ -57,13 +53,20 @@ const sliderTransparencyModal = () => {
         }
         if (e.target.closest('.popup-transparency > .close') || e.target.closest('.popup-dialog-transparency > .close')) {
             popupTransparency.style.visibility = '';
-            sliderMove(true);
+            sliderArrowRight.style.display = '';
+            sliderArrowLeft.style.display = '';
+            repairTypesSliderSlide.forEach((elem) => {
+                elem.classList.remove('active');
+                elem.style.position = 'absolute';
+                elem.style.transition = '';
+                elem.style.transform = '';
+            });
+          
         }
 
         if (e.target.closest('#transparency_right') || e.target.closest('#transparency_left')) {
             let newActive;
             let lastActive;
-            let right;
             repairTypesSliderSlide.forEach((elem, id) => {
                 if (repairTypes.querySelector('.active') == elem) {
                     lastActive = id;
