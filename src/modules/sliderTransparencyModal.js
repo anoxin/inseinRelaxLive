@@ -55,7 +55,7 @@ const sliderTransparencyModal = () => {
             popupTransparency.style.visibility = 'visible';
             sliderMove();
         }
-        if (e.target.closest('.popup-transparency > .close')) {
+        if (e.target.closest('.popup-transparency > .close') || e.target.closest('.popup-dialog-transparency > .close')) {
             popupTransparency.style.visibility = '';
             sliderMove(true);
         }
